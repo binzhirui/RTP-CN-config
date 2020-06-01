@@ -1,0 +1,51 @@
+message:
+  initteleport: "&a 正在搜索要传送到的安全位置... "
+  ＃传送延迟大于0时使用。此方法支持占位符
+  ＃有效的占位符:％hp（小时）％mp（分钟）％sp（秒） ％h（总小时）％m（总分钟）％s（总秒数）
+  initteleport_delay: "&a 你将在＆6％s秒内被传送。＆a不要移动！ !"
+  teleport_canceled: "&a 你移动了！传送被取消了 "
+  teleport: "&b 已找到安全的地方！正在传送… "
+  depleted_queue: "&6 已预生成可用位置耗尽... 强制生成新的可用位置  "
+  #valid占位符：％hp（小时）％mp（分钟）％sp（秒）％h（总小时）％m（总分钟）％s（总秒）
+  countdown: "&c 你不能传送另一个＆6％ mp minutes％sp seconds "
+＃有效的占位符：％world
+  no_world_permission: "&c 对不起，您无法在％world上进行rtp "
+empty_queue ：”＆c该世界没有可用的位置！请重试，或请管理员重新加载配置。”
+  economy:
+    insufficient_funds: "&c 你没有足够的钱来进行rtp !"
+    payment: "&a你支付了 &b%price &a来进行 rtp!"
+＃队列中预先生成的位置
+queue:
+  size: 5
+  ＃队列插入的延迟时间（20ticks= 1秒），如果数值较低那么速度更快，但是在传送玩家的同时进行搜索
+   # 这样可能会加重服务器负担，尤其是当服务器还需要为传送的玩家生成新的区块。所以在这里设置适当的延迟并不是一个坏主意
+  init_delay: 60
+worlds:
+  world:
+   # 使用世界边境（如果设置了）以限制传送 。这是世界边界。
+    use_worldborder: true
+   ＃玩家是否需要rtp.world.<worldname>权限
+    needs_world_permission: false
+    #如果use_worldborder为true则将忽略Radus和offset。
+    radius: 21474836
+    offsetX: 0
+    offsetZ: 0
+teleport:
+    #m = minutes, s = seconds
+   ＃默认：“ 60m”
+    cooldown: "60m"
+   ＃默认：“ 0s”
+  delay: "0s"
+  cancel_on_move: true
+＃要考虑的插件传送时。不会在这些地区传送玩家
+＃当前支持插件（FactionsUUID），WorldGuard，GreiefPrevention
+＃如果你希望支持更多插件：https://github.com/DarkEyeDragon/RandomTeleport/issues
+- "Factions"
+  - "WorldGuard"
+  - "GriefPrevention"
+debug:
+  ＃为世界添加了安全位置（3/5）
+  ＃位置在世界（2/5）中
+  show_queue_population: true
+economy:
+  price: 0
